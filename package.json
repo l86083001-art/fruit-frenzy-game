@@ -1,0 +1,12 @@
+{
+  "name": "fruit-frenzy-mini-game",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A polished static HTML5 fruit-slicing arcade mini-game.",
+  "scripts": {
+    "start": "node serve.mjs",
+    "dev": "node serve.mjs",
+    "test": "node --test"
+  }
+}

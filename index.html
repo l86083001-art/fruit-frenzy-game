@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#10152d" />
+  <meta name="description" content="A bright, fast, browser-based fruit slicing arcade game. Slice fruit, build combos, and avoid bombs." />
+  <title>Fruit Frenzy | Slice the Day</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Fruit Frenzy home"><span class="brand-mark" aria-hidden="true">✦</span><span>fruit<span class="brand-light">frenzy</span></span></a>
+      <div class="top-actions">
+        <span class="best-pill" aria-label="Personal best"><span aria-hidden="true">🏆</span> BEST <b id="bestScore">0</b></span>
+        <button class="icon-button" id="soundBtn" type="button" aria-label="Turn sound off" aria-pressed="true"><span id="soundIcon" aria-hidden="true">🔊</span></button>
+      </div>
+    </header>
+
+    <section class="intro" id="home">
+      <div class="eyebrow"><span class="live-dot"></span> ARCADE MODE <span class="eyebrow-divider">/</span> READY, SET, SLICE</div>
+      <h1>Slice the day.<br /><span>Own the score.</span></h1>
+      <p>Follow the fruit. Trust your reflexes. Leave the bombs alone.</p>
+    </section>
+
+    <section class="game-card" aria-label="Fruit Frenzy game">
+      <div class="hud">
+        <div class="hud-stat"><span class="hud-label">SCORE</span><strong id="score">0000</strong></div>
+        <div class="timer-wrap"><div class="timer-ring" id="timerRing"><span id="timeLeft">60</span></div><span class="hud-label">SECONDS</span></div>
+        <div class="hud-stat hud-stat-right"><span class="hud-label">COMBO</span><strong id="combo">×1</strong></div>
+      </div>
+
+      <div class="playfield" id="playfield">
+        <canvas id="gameCanvas" aria-label="Game area. Swipe through fruit to score points and avoid bombs." role="img"></canvas>
+        <div class="screen-layer" id="screenLayer">
+          <div class="modal-card" id="startPanel">
+            <div class="modal-fruits" aria-hidden="true"><span>🍉</span><span>🍊</span><span>🍓</span></div>
+            <div class="modal-kicker">YOUR 60-SECOND CHALLENGE</div>
+            <h2>Ready to make<br />a little <em>fruit chaos?</em></h2>
+            <p>Swipe across fruit to slice it. Chain slices for combo points. <b>Bombs are a no-go!</b></p>
+            <div class="how-to"><span class="gesture-icon" aria-hidden="true">↗</span><span><b>Swipe to slice</b><small>Mouse, finger, or arrow keys</small></span><span class="bomb-icon" aria-hidden="true">✹</span><span><b>Skip the bombs</b><small>One hit costs 10 points</small></span></div>
+            <button class="primary-button" id="startBtn" type="button">LET'S SLICE <span aria-hidden="true">↗</span></button>
+            <span class="fine-print">No downloads. Just fruit-powered fun.</span>
+          </div>
+          <div class="modal-card compact-panel hidden" id="pausePanel" aria-live="polite">
+            <div class="modal-kicker">TAKE YOUR TIME</div><h2>Game <em>paused.</em></h2><p>Your fruit is holding its breath.</p>
+            <button class="primary-button" id="resumeBtn" type="button">RESUME GAME <span aria-hidden="true">▶</span></button>
+          </div>
+          <div class="modal-card compact-panel hidden" id="gameOverPanel" aria-live="polite">
+            <div class="modal-kicker">JUICE REPORT</div><h2 id="gameOverTitle">Sweet <em>work!</em></h2><div class="final-score" id="finalScore">0000</div><p id="resultMessage">A fresh score to squeeze.</p>
+            <div class="result-row"><span>BEST SCORE</span><b id="finalBest">0000</b></div>
+            <button class="primary-button" id="restartBtn" type="button">PLAY AGAIN <span aria-hidden="true">↻</span></button>
+          </div>
+        </div>
+        <div class="playfield-hint" id="playHint"><span class="hint-sparkle">✦</span> Swipe anywhere in the arena</div>
+      </div>
+
+      <div class="game-controls">
+        <div class="control-note"><span class="status-dot" id="statusDot"></span><span id="statusText">READY WHEN YOU ARE</span></div>
+        <div class="control-buttons"><button class="secondary-button" id="pauseBtn" type="button" disabled><span aria-hidden="true">Ⅱ</span> PAUSE</button><button class="secondary-button" id="resetBtn" type="button"><span aria-hidden="true">↻</span> RESTART</button></div>
+      </div>
+    </section>
+
+    <section class="tips-row" aria-label="Game tips"><div class="tip"><span class="tip-icon tip-pink">✦</span><div><b>Slice smart</b><small>Every fruit counts</small></div></div><div class="tip"><span class="tip-icon tip-yellow">⚡</span><div><b>Build a combo</b><small>Quick slices = big points</small></div></div><div class="tip"><span class="tip-icon tip-green">◉</span><div><b>Stay sharp</b><small>Watch for the bombs</small></div></div></section>
+    <footer>MADE FOR QUICK BREAKS <span>✦</span> PLAY FAIR, SLICE FAST</footer>
+  </main>
+  <script src="game.js" defer></script>
+</body>
+</html>
